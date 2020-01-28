@@ -72,15 +72,111 @@ It is recommended that you take some time to read through the material.
 Open an empty pure text file.
 
 ```bash
-$ nano yourfile.txt
+$ nano a.txt
+```
+
+Let us create some content in our file `a.txt`:
+
+```
+Mr. Utterson the lawyer was
+a man of a rugged countenance
+that was never lighted by a smile;
+cold, scanty and embarrassed in discourse;
+backward in sentiment;
+lean, long, dusty, dreary
+and yet somehow lovable.
+```
+
+Now, let us create a file `b.txt` which contains some errors on line five:
+
+```
+Mr. Utterson the lawyer was
+a man of a rugged countenance
+that was never lighted by a smile;
+cold, scanty and embarrassed in discourse;
+bckwrd n sntmnt;
+lean, long, dusty, dreary
+and yet somehow lovable.
+```
+
+If we run `diff a.txt b.txt` in the terminal, we will get the following output
+(this is important)
+
+```patch
+5c5
+< backward in sentiment;
+---
+> bckwrd n sntmnt;
+```
+
+There are four lines in this output, and each line is important.
+1. `5c5` consists of two line numbers `5` and `5`, separated by a `c` (for _change_)
+1. The `<` character means content in the _first_ file (`a.txt`)
+1. The `---` separator means that we are done with the _first file_ of this _hunk_
+1. The `>` character means content in the _second_ file (`b.txt`)
+
+If we _delete_ the fifth line in `b.txt` (the one reading `bckwrd n sntmnt;`), and
+run `diff`, the output will be:
+
+```patch
+5d4
+< backward in sentiment;
+```
+
+You might have guessed it: the `d` in `5d4` means that a line was _deleted_.
+Were we to _add_ a line to the second file, the output would likely be `5a6`.
+
+Notice how a diff (a _patch_) between two files can tell us how to go from _one
+file_ (`a.txt`) to another file (`b.txt`), and back again.  And indeed, there is
+a tool, called `patch`, that takes a diff and _applies_ it to a file, producing
+the second file:
+
+```bash
+$ diff a.txt b.txt > fix.patch
+$ patch a.txt fix.patch
+patching file a
+```
+
+It is also possible to go back (we are asked in this case)
+
+```bash
+$ patch b.txt fix.patch
+patching file b
+Reversed (or previously applied) patch detected!  Assume -R? [n]
+```
+
+(press `y` for reverse patching).
+
+Once you understand this back-and-forth you will be able to understand
+everything version control is about!
+
+**Hunks**
+
+As we saw above, the diff output consisted of one line with something like
+`5c5`, one (or more) line(s) starting with `<`, a separator `---`, followed by
+one (or more) line(s) starting with `>`.  This is one _section_ of a diff,
+called a _hunk_.  If you have several changes in different places in the file,
+you will likely have _several hunks_.  You should be able to decode their
+meaning now, i.e. what is the difference between `a.txt` and `b.txt`.
+
+```patch
+2c2
+< a man of a rugged countenance
+---
+> a man of rugged countenance
+6c6
+< lean, long, dusty, dreary
+---
+> lean, long dusty, dreary
 ```
 
 ## Exercises
 
-1. Create `touch` a new text file.
-1. Write some lines
-1. Copy that file to a different file and make a couple of changes
+1. Create (`touch`) a new text file.
+1. Write some lines.
+1. Copy that file to a different file and make a couple of changes.
 1. Run `diff` on the two files and save the output to a new file.
+1. Experiment with several changes and inspect the output of `diff`.
 1. Apply `patch` on the file and the output.
 
 ## References
@@ -89,7 +185,7 @@ $ nano yourfile.txt
 * [`diff`](https://en.wikipedia.org/wiki/Diff)
 * [`man diff`](http://man7.org/linux/man-pages/man1/diff.1.html)
 * [`man patch`](http://man7.org/linux/man-pages/man1/patch.1.html)
-
+* [Hunks](http://www.gnu.org/software/diffutils/manual/html_node/Hunks.html)
 
 # The empty repository
 
