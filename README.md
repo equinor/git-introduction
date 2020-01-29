@@ -67,8 +67,8 @@ It is recommended that you take some time to read through the material.
 1. [Browsing our history](#browsing-our-history)
 1. [Linear use of git](#linear-use-of-git)
 1. [Branches in git](#branches-in-git)
-
-1. [Git commands we have seen](#git-commands-we-have-seen)
+1. [Remotes](#remotes)
+1. [Git commands](#git-commands)
 
 # Warming up
 
@@ -623,8 +623,68 @@ and when you are happy, you simply stage & commit.
 1. [`git rebase`](https://git-scm.com/docs/git-rebase)
 
 
+# Remotes
 
-# Git commands we have (or have not?) seen
+We are now actually at a level where we can use Git for everything, but we have
+not used it as a collaborative tool.  It is actually possible to use it
+productively by sending the changes (commits and even full branches) via
+_email_, however, it is possible to use a common _server_, or in Git called
+_remote_, to share a Git tree.
+
+Suppose that you (Alice) are working with Bob on the same Git tree, and the Git
+tree are stored on a _Git server_ with URL
+`https://example.com/git/project.git`.
+
+You can _add_ that URL as a _remote_ for your git tree by using
+
+```
+git remote add origin https://example.com/git/project.git
+```
+
+The name `origin` here is _arbitrary_ but standard.  There is also a Git
+protocol which is based on `ssh`, in which the URL above would look like
+`git://example.com:git/project.git`.
+
+We could add such a remote (choosing a different name now) with
+
+```
+git remote add upstream git://example.com/git/project.git
+```
+
+
+**Cloning an existing repo**
+
+If the repository already exists on the server, you more likely would want to
+_clone_ the repository:
+
+```
+git clone git://example.com/git/project.git
+```
+
+**Fetching, pulling, and pushing**
+
+To _push_ your tree to the server, you simply write `git push`.
+
+To _fetch_ the tree on the server, you run `git fetch`.
+
+If you want to _fetch and "merge"_ the changes on the server, you run `git
+pull`.
+
+
+## Exercises
+
+1. Clone any Git repository and run `git log`
+
+## References
+
+* [`git clone`](https://git-scm.com/docs/git-clone)
+* [`git remote`](https://git-scm.com/docs/git-remote)
+* [`git push`](https://git-scm.com/docs/git-push)
+* [`git fetch`](https://git-scm.com/docs/git-fetch)
+* [`git pull`](https://git-scm.com/docs/git-pull)
+
+
+# Git commands
 
 * [`git init`](https://git-scm.com/docs/git-init)
 * [`git log`](https://git-scm.com/docs/git-log)
