@@ -456,6 +456,63 @@ that `my_first_branch` has moved beyond `master`, by running `git log`:
 * 1fe91d0 (master) Initial commit
 ```
 
+
+**Merging a branch into `master`**
+
+When we work with a branch, we usually intend to _merge_ the branch with the
+master branch (but not always).
+
+Run `git branch` to ensure that we are on `master`.  Run `git checkout -b
+new_branch` and make changes to `a.txt`.  Stage and commit the changes, and
+check out `master`.
+
+_Observe that we have two different versions of `a.txt`.
+
+When we want to merge `new_branch` _into_ `master`, we simply write
+
+```bash
+git merge new_branch
+```
+
+This was _a very simple merge_, which resulted only in a _fast-forward_.
+
+Let us make a more complicated merge.  Check out a new branch, called
+`second_branch`.  Change `a.txt` (and stage and commit) in the top of the file!
+Go back to `master` and change `a.txt` at the bottom of the file (stage &
+commit).  Observer that we have _two different (changed) versions of `a.txt`_ in
+the two branches.
+
+Go to `master` and again run `git merge second_branch`.
+
+At this point, `git` will **create a new commit** for you, called a _merge
+commit_.  You are asked to provide a commit message, but the default
+
+> `Merge branch 'second_branch'`
+
+is a good message, so we keep that.
+
+Git will now do an _auto-merge_.
+
+At this poitn, it can be illuminating to run
+
+```bash
+git log --oneline --graph
+```
+
+```git
+*   5d7576b (HEAD -> master) Merge branch 'second_branch'
+|\
+| * 039842c (second_branch) Change in second to a
+* | ff20c97 Change in master to a
+|/
+* 02c02bc Add changes to file on master
+* cf6489e (new_branch) Add change in new_branch
+* f8213a3 Add file c
+* 434bbc2 Add b
+* d52b990 Initial long commit
+* 4468f5d Initial commit
+```
+
 ## Exercises
 
 1. Create a new branch
@@ -467,6 +524,7 @@ that `my_first_branch` has moved beyond `master`, by running `git log`:
 ## References
 
 1. [`git branch`](https://git-scm.com/docs/git-branch)
+1. [`git merge`](https://git-scm.com/docs/git-merge)
 
 
 # Git commands we have seen
