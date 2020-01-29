@@ -513,21 +513,118 @@ git log --oneline --graph
 * 4468f5d Initial commit
 ```
 
+
+**Merge conflicts**
+
+It is at this point recommended to breath, enter lotus position, revisit the
+previous exercises and embrace.  We will _provoke a **CONFLICT**_ in `git`.
+
+As you saw in the previous section, `git` could easily merge the changes,
+because they touched completely different parts of the file.  Git manages to
+keep both changes, and no data/change is lost.
+
+But what if we have two files that change _the same line_‽
+
+Let us check out yet another branch, `git checkout -b future-confl`.  Edit any
+line in `a.txt` and commit.  Go back to master and edit _the same line in
+`a.txt` but in a different way_.  Now **let's merge**!
+
+```
+$ git merge future-confl
+Auto-merging a
+CONFLICT (content): Merge conflict in a
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Run `git status` to see what is going on:
+
+```
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   a.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+We are now in a _conflict_ state, which we can easily get out of by running `git
+add a.txt` and `git commit`.  But first, let's inspect `a.txt`.
+
+```
+git diff
+  The text above the change ...
+++<<<<<<< HEAD
+ +this line was changed in master.
+++=======
++ whereas this line was changed in future_confl.
+++>>>>>>> future-confl
+  this is some more text ...
+```
+
+What we can see here, is that `git` informs us that _we have to choose_ which
+change we want, or more precisely, _how we want `a.txt` to look_ on `master`.
+
+Let's go into the `a.txt` file and fix the _conflict_.  Run `git add a.txt` and
+`git commit`.  Again we are prompted with a commit message, and again the
+default is ok,
+
+> `Merge branch 'future-confl'`
+
+Again we can run `git log --oneline --graph` to see our work:
+
+```
+*   20bb70d (HEAD -> master) Merge branch 'future-confl'
+|\
+| * a80f35e (future-confl) Change a in future-confl
+* | 80ca334 Change a in master
+|/
+*   5d7576b Merge branch 'second_branch'
+|\
+| * 039842c (second_branch) Change in second to a
+* | ff20c97 Change in master to a
+|/
+* 02c02bc Add changes to file on master
+* cf6489e (new_branch) Add change in new_branch
+* f8213a3 Add file c
+* 434bbc2 Add b
+* d52b990 Initial long commit
+* 4468f5d Initial commit
+```
+
+We have successfully _provoked_ a **conflict** as well as _resolved_ it.
+
+Take away message: A conflict is Git telling us that she doesn't know which
+change you want to keep, because you changed the same part in both branches you
+want to merge.  Git then asks you to manually pick how the result should look,
+and when you are happy, you simply stage & commit.
+
+
 ## Exercises
 
 1. Create a new branch
 1. Jump between branches
 1. Change the file in one branch, add, commit, observe the file in the different branches
 1. Merge the branch _into_ `master`
-
+1. Create a new branch, and change `a.txt` in the top.  Go back to master and
+   change it in the bottom parts.  Merge.
+1. Create a new branch, change the same parts in both master and the new branch.
+   Merge and resolve conflicts.
+1. Read the manual entry for `git rebase`.
 
 ## References
 
 1. [`git branch`](https://git-scm.com/docs/git-branch)
 1. [`git merge`](https://git-scm.com/docs/git-merge)
+1. [`git rebase`](https://git-scm.com/docs/git-rebase)
 
 
-# Git commands we have seen
+
+# Git commands we have (or have not?) seen
 
 * [`git init`](https://git-scm.com/docs/git-init)
 * [`git log`](https://git-scm.com/docs/git-log)
