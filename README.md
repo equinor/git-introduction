@@ -311,6 +311,9 @@ As many times as you need:
 1. Change a line, diff, status, add and commit, log
 1. Delete a line, diff, status, add and commit, log
 1. Add    a line, diff, status, add and commit, log
+1. Write a longer file with at least three paragraphs, add and commit ...
+1. ... then modify the file in the top and bottom paragraphs and run `git add -p`
+1. Change top and bottom paragraph, add and commit _only the top changes_
 
 ## References
 
