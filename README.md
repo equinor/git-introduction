@@ -358,9 +358,72 @@ not be what you want.
 
 
 
+**Reverting all the changes**
+
+Let's say you delete `a.txt` and maybe overwrite `b.txt` with some garbage that
+you didn't intend to.  If there is no other change you need to keep since the
+previous commit, you run
+
+```bash
+git reset --hard
+```
+
+However, that resets _everything_.  Sometimes you want to keep some of the
+changes (say, the changes to `b.txt`), but you might still want to recover
+`a.txt`.  The simplest way out is to run
+
+```bash
+git add b.txt
+git commit -m "Saving changes to b"
+git reset --hard
+```
+
+Now, since we saved the changes to `b.txt`, the `reset --hard` restores `a.txt`,
+but leaves `b.txt` as it is in the commit.
+
+**Undoing a staging (an `add`)**
+
+Suppose that you change `b.txt` and stage the changes with `git add b.txt`, but
+immediately regrets staging them.  By running
+
+```bash
+git reset
+```
+
+we _unstage_ everything.  We can also run `git reset b.txt` to reset _only_
+`b.txt`.  In some sense, `git reset <path>` is the opposite action of `git add <path>`.
+
+
+
+**Undoing a commit**
+
+Sometimes we even _commit_ a staged change by accident, or after review, we
+realize that we have commited an error.  We can _roll back to a previous
+commit_, however, this should be done only locally, or in other special
+circumstances.
+
+If we have this history:
+```
+* be70d88 (HEAD -> master) Add c
+* 434bbc2 Add b
+* d52b990 Initial long commit
+* 4468f5d Initial commit
+```
+
+then `git reset --hard 434bbc2` results in this tree:
+
+```
+* 434bbc2 (HEAD -> master) Add b
+* d52b990 Initial long commit
+* 4468f5d Initial commit
+```
+
 
 ## Exercises
 1. Delete `a.txt` with `rm a.txt` and run `git status`.  Revert the change with `git reset --hard`.
+1. Stage changes in several files, unstage only one of the file changes.
+1. Unstage everything, and stage with `git add -p`
+1. Commit and roll back to a previous commit.
 
 ## References
 
