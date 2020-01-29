@@ -115,8 +115,8 @@ There are four lines in this output, and each line is important.
 1. The `---` separator means that we are done with the _first file_ of this _hunk_
 1. The `>` character means content in the _second_ file (`b.txt`)
 
-If we _delete_ the fifth line in `b.txt` (the one reading `bckwrd n sntmnt;`), and
-run `diff`, the output will be:
+If we go back to file `b.txt` and _delete_ the fifth line (the one reading
+`bckwrd n sntmnt;`), then `diff a.txt b.txt` will say
 
 ```patch
 5d4
@@ -137,7 +137,7 @@ $ patch a.txt fix.patch
 patching file a
 ```
 
-It is also possible to go back (we are asked in this case)
+It is also possible to go back
 
 ```bash
 $ patch b.txt fix.patch
