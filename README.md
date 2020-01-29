@@ -244,6 +244,18 @@ section, we will take our file `a.txt` and _add_ it to git.
 
 # Your first commit
 
+The sooner we talk about the three stages of _tracked_ files, the better:
+1. Tracked, unchanged
+1. Tracked, changes _**not** staged to be commited_
+1. Tracked, changes _**staged** to be commited_
+1. (... and of course the _untracked_ files)
+
+When we have _added_ a file to the _git tree_, it is tracked.  If we change that
+file, the file will immediately be marked as _changed_, but the changes are not
+staged.  Before we can _commit_ the changes to the git tree, we need to _stage_
+the changes, or `add` the changes.  We do this by running `git add a.txt`.  To
+immediately _commit_ the changes, we run `git commit -m "Description/message of
+change"`.
 
 ```bash
 git add a.txt
