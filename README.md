@@ -65,6 +65,9 @@ It is recommended that you take some time to read through the material.
 1. [The empty repository](#the-empty-repository)
 1. [Your first commit](#your-first-commit)
 1. [Browsing our history](#browsing-our-history)
+1. [Linear use of git](#linear-use-of-git)
+1. [Branches in git](#branches-in-git)
+
 1. [Git commands we have seen](#git-commands-we-have-seen)
 
 # Warming up
@@ -189,7 +192,40 @@ meaning now, i.e. what is the difference between `a.txt` and `b.txt`.
 
 # The empty repository
 
-TBW
+We now understand the fundamentals behind revisions of files, so we are ready to
+start using `git`.  Go into a new empty folder and simply write
+
+```bash
+git init
+```
+
+The output will be
+```
+Initialized empty Git repository in /Your/username/path/.git/
+```
+
+**Congratulations**, you have started using `git`!
+
+To see what we have in our folder, we run
+
+```bash
+git status
+```
+
+which outputs
+
+```
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+Git here tells us that we have no history, and thus no files.  So in the next
+section, we will take our file `a.txt` and _add_ it to git.
+
+
 
 ## Exercises
 
@@ -207,6 +243,21 @@ TBW
 
 
 # Your first commit
+
+
+```bash
+git add a.txt
+git commit -m "Initial commit"
+```
+
+Which outputs
+
+```
+[master (root-commit) 1fe91d0] Initial commit
+ 1 file changed, 6 insertions(+)
+ create mode 100644 a.txt
+```
+
 
 
 ## Exercises
@@ -231,11 +282,82 @@ all a revision control system.
 ## Exercises
 
 1. Run `git log`
+1. Run `git log --oneline`
 
 
 ## References
 
 1. [`git log`](https://git-scm.com/docs/git-log)
+
+
+# Linear use of git
+
+Now we are ready to use Git.
+
+Open `a.txt` and add a couple of lines.
+
+As many times as you need:
+> change `a.txt`
+> `git add a.txt`
+> `git diff`
+> `git status`
+> `git commit -m "Changed a.txt"`
+> `git status`
+> `git log --oneline`
+
+
+## Exercises
+
+1. Change a line, diff, status, add and commit, log
+1. Delete a line, diff, status, add and commit, log
+1. Add    a line, diff, status, add and commit, log
+
+## References
+
+* [`git log`](https://git-scm.com/docs/git-log)
+* [`git status`](https://git-scm.com/docs/git-status)
+* [`git diff`](https://git-scm.com/docs/git-diff)
+* [`git add`](https://git-scm.com/docs/git-add)
+* [`git commit`](https://git-scm.com/docs/git-commit)
+
+
+# Branches in git
+
+A commit is, as we have seen, a `diff` between different versions of files, and
+_commits form the base of `git`_.  A _commit_ lives in a _branch_.
+
+When we ran `git init`, we started with a branch called `master`.  While we add
+and commit, we commit _to `master`_.
+
+We can _branch out from `master`_ to create new commits that are "separate" from
+the commits we have on `master` by using `git checkout`:
+
+```bash
+git checkout -b my_first_branch
+```
+
+This takes us to a _new branch_ that branched our from _`HEAD`_ on `master`, and
+if we run `git log`, we will see that we are on `my_first_branch`.
+
+When we now change a file, and add and commit it, we can see from the `log`,
+that `my_first_branch` has moved beyond `master`, by running `git log`:
+
+```
+* f308559 (HEAD -> my_first_branch) Add line on new branch
+* 1fe91d0 (master) Initial commit
+```
+
+## Exercises
+
+1. Create a new branch
+1. Jump between branches
+1. Change the file in one branch, add, commit, observe the file in the different branches
+1. Merge the branch _into_ `master`
+
+
+## References
+
+1. [`git branch`](https://git-scm.com/docs/git-branch)
 
 
 # Git commands we have seen
