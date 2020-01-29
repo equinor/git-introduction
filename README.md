@@ -336,6 +336,37 @@ As many times as you need:
 * [`git commit`](https://git-scm.com/docs/git-commit)
 
 
+# Undoing changes
+
+Being humans, one thing that will never change is that we make mistakes.  Like a
+lot.  Sometimes we delete a file we didn't intend to delete, and sometimes we
+change things we didn't want changed.  Git is super-helpful in these cases.
+Even if we _commit the changes we didn't intend_, we can still navigate back to
+the previous version we were happy with.
+
+First of all, you should know that
+
+```bash
+git reset --hard
+```
+
+removes all your changes and everything you _added_ since last _commit_.  Hence,
+if you commit often, you can always get back to a nearby state by running
+`git reset --hard`.
+But realize that this removes all your unsaved uncommited changes, which might
+not be what you want.
+
+
+
+
+## Exercises
+1. Delete `a.txt` with `rm a.txt` and run `git status`.  Revert the change with `git reset --hard`.
+
+## References
+
+* [`git reset`](https://git-scm.com/docs/git-reset)
+
+
 # Branches in git
 
 A commit is, as we have seen, a `diff` between different versions of files, and
