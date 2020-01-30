@@ -618,7 +618,8 @@ and when you are happy, you simply stage & commit.
    Merge and resolve conflicts.
 1. Read the manual entry for `git rebase`.
 1. Python exercise:  Create a file `cc.py` with the following content
-```
+
+```python
 def count_chars(fname, char):
     count = 0
     with open(fname, "r") as f:
