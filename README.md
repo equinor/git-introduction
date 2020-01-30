@@ -724,6 +724,8 @@ pull`.
   * [`git diff`](https://git-scm.com/docs/git-diff)
   * [`git show`](https://git-scm.com/docs/git-show)
   * [`git blame`](https://git-scm.com/docs/git-blame)
+  * [`git config`](https://git-scm.com/docs/git-config)
+  * [`git help`](https://git-scm.com/docs/git-help)
 * Linear basic git
   * [`git init`](https://git-scm.com/docs/git-init)
   * [`git add`](https://git-scm.com/docs/git-add)
