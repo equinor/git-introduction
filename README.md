@@ -648,7 +648,7 @@ protocol which is based on `ssh`, in which the URL above would look like
 We could add such a remote (choosing a different name now) with
 
 ```
-git remote add upstream git://example.com/git/project.git
+git remote add upstream git://example.com:git/project.git
 ```
 
 
@@ -658,8 +658,38 @@ If the repository already exists on the server, you more likely would want to
 _clone_ the repository:
 
 ```
-git clone git://example.com/git/project.git
+git clone git://example.com:git/project.git
 ```
+
+
+
+**Note one `ssh` vs `https`**
+
+When using the `https` protocol, we are prompted with a _login_ prompt whenever
+we want to interact with the server, of the kind
+
+```
+username:
+password:
+```
+
+However, in today's era, we very often recommend the use of _two-factor
+authentication_ (2FA), and as you maybe can imagine, this prompt rarely works
+well with 2FA.  Hence, if you have enabled 2FA on your Git server, you should
+not be surprised if you run into problems using the `https` protocol.
+
+We therefore recommend you use the `ssh` protocol.  The `ssh` protocol is based
+on a _private/public key_ (asymmetric encryption), where you generate _two
+keys_, one that you keep secret (your private key), and one you give to the Git
+server (and everyone else in the world, your public key).
+
+There is a [tutorial on GitHub.com for _Generating a new SSH key and adding it
+to the
+ssh-agent_](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+As long as you keep the private key secret, this is a very good and secure way
+of working with Git.  You can add several keys, one for each computer you use.
+
 
 **Fetching, pulling, and pushing**
 
