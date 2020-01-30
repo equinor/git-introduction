@@ -66,6 +66,7 @@ It is recommended that you take some time to read through the material.
 1. [Your first commit](#your-first-commit)
 1. [Browsing our history](#browsing-our-history)
 1. [Linear use of git](#linear-use-of-git)
+1. [Undoing changes](#undoing-changes)
 1. [Branches in git](#branches-in-git)
 1. [Remotes](#remotes)
 1. [Git commands](#git-commands)
