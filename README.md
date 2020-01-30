@@ -686,12 +686,14 @@ pull`.
 
 # Git commands
 
-* Linear basic git
-  * [`git init`](https://git-scm.com/docs/git-init)
+* Git browsing
   * [`git log`](https://git-scm.com/docs/git-log)
   * [`git status`](https://git-scm.com/docs/git-status)
   * [`git diff`](https://git-scm.com/docs/git-diff)
   * [`git show`](https://git-scm.com/docs/git-show)
+  * [`git blame`](https://git-scm.com/docs/git-blame)
+* Linear basic git
+  * [`git init`](https://git-scm.com/docs/git-init)
   * [`git add`](https://git-scm.com/docs/git-add)
   * [`git commit`](https://git-scm.com/docs/git-commit)
   * [`git reset`](https://git-scm.com/docs/git-reset)
@@ -701,7 +703,6 @@ pull`.
   * [`git restore`](https://git-scm.com/docs/git-restore)
   * [`git stash`](https://git-scm.com/docs/git-stash)
   * [`git tag`](https://git-scm.com/docs/git-tag)
-  * [`git blame`](https://git-scm.com/docs/git-blame)
   * [`git apply`](https://git-scm.com/docs/git-apply)
 * Branching
   * [`git branch`](https://git-scm.com/docs/git-branch)
