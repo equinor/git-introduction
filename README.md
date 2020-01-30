@@ -309,13 +309,14 @@ Now we are ready to use Git.
 Open `a.txt` and add a couple of lines.
 
 As many times as you need:
-> change `a.txt`
-> `git add a.txt`
-> `git diff`
-> `git status`
-> `git commit -m "Changed a.txt"`
-> `git status`
-> `git log --oneline`
+> * change `a.txt`
+> * `git add a.txt`
+> * `git diff`
+> * `git status`
+> * `git commit -m "Changed a.txt"`
+> * `git status`
+> * `git log --oneline`
+> * `git log -p`
 
 
 ## Exercises
