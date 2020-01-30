@@ -617,6 +617,35 @@ and when you are happy, you simply stage & commit.
 1. Create a new branch, change the same parts in both master and the new branch.
    Merge and resolve conflicts.
 1. Read the manual entry for `git rebase`.
+1. Python exercise:  Create a file `cc.py` with the following content
+```
+def count_chars(fname, char):
+    count = 0
+    with open(fname, "r") as f:
+        for line in f:
+            count += line.count(char)
+    return count
+
+
+if __name__ == "__main__":
+    from sys import argv
+
+    print(count_chars(argv[1], argv[2]))
+```
+
+Create a branch, one where you change `fname` to `filename` (both places), and
+on `master`, you change `count_chars` to `count_character` (both places).
+
+Merge the changes into one working Python script containing both changes.
+
+Ensure that the script work by running
+```
+$ python cc.py cc.py i
+10
+$ python cc.py cc.py a
+14
+```
+
 
 ## References
 
