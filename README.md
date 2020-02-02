@@ -616,6 +616,7 @@ and when you are happy, you simply stage & commit.
    change it in the bottom parts.  Merge.
 1. Create a new branch, change the same parts in both master and the new branch.
    Merge and resolve conflicts.
+1. Create a different branch, make a commit, go back to master and `cherry-pick` the commit in.
 1. Read the manual entry for `git rebase`.
 1. Python exercise:  Create a file `cc.py` with the following content
 
@@ -653,6 +654,7 @@ $ python cc.py cc.py a
 1. [`git branch`](https://git-scm.com/docs/git-branch)
 1. [`git merge`](https://git-scm.com/docs/git-merge)
 1. [`git rebase`](https://git-scm.com/docs/git-rebase)
+1. [`git cherry-pick`](https://git-scm.com/docs/git-cherry-pick)
 
 
 # Remotes
