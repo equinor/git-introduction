@@ -58,8 +58,9 @@ It is recommended that you take some time to read through the material.
 
 Note that this course will be completely console/text based, and the goal is
 that if you understand the foundation of git and version control, you will also
-be able to use Git through graphical user interfaces, such as `gitk` that might
-already be available on your system.
+be able to use Git through graphical user interfaces, such as
+[`gitk`](https://git-scm.com/docs/gitk) that might already be available on your
+system.
 
 
 
