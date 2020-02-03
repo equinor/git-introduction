@@ -52,9 +52,14 @@ Most sections have a _reference_ section for further reading, e.g.
 
 > **References**
 > 1. [git-scm](https://git-scm.com/book/en/v2)
+> 1. [`man gittutorial`](https://git-scm.com/docs/gittutorial)
 
 It is recommended that you take some time to read through the material.
 
+Note that this course will be completely console/text based, and the goal is
+that if you understand the foundation of git and version control, you will also
+be able to use Git through graphical user interfaces, such as `gitk` that might
+already be available on your system.
 
 
 
