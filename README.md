@@ -105,6 +105,9 @@ Open an empty pure text file.
 $ nano a.txt
 ```
 
+_(Note that if you are on Windows, you may use `notepad a.txt` instead.)_
+
+
 Let us create some content in our file `a.txt`:
 
 ```
