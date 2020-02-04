@@ -63,6 +63,26 @@ be able to use Git through graphical user interfaces, such as
 system.
 
 
+**A half day course**
+
+The topics for a four hour course is:
+
+1. First commits and browsing
+2. Linear use and undoing
+3. Branches
+4. Remotes
+
+
+The least interesting topic for a _fundamentals course_ is the topic of
+_Remotes_, so when squeezed into _three hours_, we cap the that section.
+
+
+The topics for a three hour course is:
+
+1. First commits and browsing
+2. Linear use and undoing
+3. Branches and remotes
+
 
 ## Table of contents
 
