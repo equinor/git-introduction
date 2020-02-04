@@ -262,13 +262,13 @@ section, we will take our file `a.txt` and _add_ it to git.
 1. Make a new folder
 1. Run `git init`
 1. Run `git status`
-
+1. Read _How to Write a Git Commit Message_.
 
 ## References
 
 1. [`git init`](https://git-scm.com/docs/git-init)
 1. [`git status`](https://git-scm.com/docs/git-status)
-
+1. [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
 
 
 
