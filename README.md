@@ -471,13 +471,21 @@ When we ran `git init`, we started with a branch called `master`.  While we add
 and commit, we commit _to `master`_.
 
 We can _branch out from `master`_ to create new commits that are "separate" from
-the commits we have on `master` by using `git checkout`:
+the commits we have on `master` by using `git branch`:
 
 ```bash
-git checkout -b my_first_branch
+git branch my_first_branch
 ```
 
-This takes us to a _new branch_ that branched our from _`HEAD`_ on `master`, and
+The `branch` command adds a _new branch_ called `my_first_branch`, and if we run
+`git branch` now, we will see that we have two branches, `master` and
+`my_first_branch`.  The next step is to _go to_ the new branch:
+
+```bash
+git checkout my_first_branch
+```
+
+This takes us to the new branch that branched our from _`HEAD`_ on `master`, and
 if we run `git log`, we will see that we are on `my_first_branch`.
 
 When we now change a file, and add and commit it, we can see from the `log`,
