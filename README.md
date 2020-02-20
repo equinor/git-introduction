@@ -53,6 +53,7 @@ Most sections have a _reference_ section for further reading, e.g.
 > **References**
 > 1. [git-scm](https://git-scm.com/book/en/v2)
 > 1. [`man gittutorial`](https://git-scm.com/docs/gittutorial)
+> 1. [Learn Git branching](https://learngitbranching.js.org/)
 
 It is recommended that you take some time to read through the material.
 
