@@ -51,6 +51,7 @@ the beginning of the section.
 Most sections have a _reference_ section for further reading, e.g.
 
 > **References**
+>
 > 1. [git-scm](https://git-scm.com/book/en/v2)
 > 1. [`man gittutorial`](https://git-scm.com/docs/gittutorial)
 > 1. [Learn Git branching](https://learngitbranching.js.org/)
@@ -257,6 +258,31 @@ Git here tells us that we have no history, and thus no files.  So in the next
 section, we will take our file `a.txt` and _add_ it to git.
 
 
+_Observe_ now that though, that everything in Git is stored in the `.git`
+folder, and you can always investigate its content by running `tree` (or `find
+.git` if your system does not have `tree`).
+
+```bash
+$ tree .git
+.git
+├── branches
+├── config
+├── description
+├── HEAD
+├── hooks
+│   ├── applypatch-msg.sample
+│   ├── […]
+│   └── update.sample
+├── info
+│   └── exclude
+├── objects
+│   ├── info
+│   └── pack
+└── refs
+    ├── heads
+    └── tags
+
+```
 
 ## Exercises
 
