@@ -276,6 +276,7 @@ section, we will take our file `a.txt` and _add_ it to git.
 # Your first commit
 
 The sooner we talk about the three stages of _tracked_ files, the better:
+
 1. Tracked, unchanged
 1. Tracked, changes _**not** staged to be commited_
 1. Tracked, changes _**staged** to be commited_
@@ -341,15 +342,17 @@ Now we are ready to use Git.
 Open `a.txt` and add a couple of lines.
 
 As many times as you need:
-> * change `a.txt`
-> * `git add a.txt`
-> * `git diff`
-> * `git status`
-> * `git commit -m "Changed a.txt"`
-> * `git status`
-> * `git log --oneline`
-> * `git log -p`
 
+```
+edit a.txt
+git add a.txt
+git diff
+git status
+git commit -m "Changed a.txt"
+git status
+git log --oneline
+git log -p
+```
 
 ## Exercises
 
@@ -507,7 +510,7 @@ Run `git branch` to ensure that we are on `master`.  Run `git checkout -b
 new_branch` and make changes to `a.txt`.  Stage and commit the changes, and
 check out `master`.
 
-_Observe that we have two different versions of `a.txt`.
+_Observe_ that we have two different versions of `a.txt`.
 
 When we want to merge `new_branch` _into_ `master`, we simply write
 
@@ -783,7 +786,7 @@ pull`.
 * [`git push`](https://git-scm.com/docs/git-push)
 * [`git fetch`](https://git-scm.com/docs/git-fetch)
 * [`git pull`](https://git-scm.com/docs/git-pull)
-
+* [Generating a new SSH key](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 # Git commands
 
