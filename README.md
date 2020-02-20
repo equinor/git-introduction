@@ -482,6 +482,7 @@ then `git reset --hard 434bbc2` results in this tree:
 
 
 ## Exercises
+
 1. Delete `a.txt` with `rm a.txt` and run `git status`.  Revert the change with `git reset --hard`.
 1. Stage changes in several files, unstage only one of the file changes.
 1. Unstage everything, and stage with `git add -p`
