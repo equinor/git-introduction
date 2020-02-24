@@ -550,7 +550,7 @@ This was _a very simple merge_, which resulted only in a _fast-forward_.
 Let us make a more complicated merge.  Check out a new branch, called
 `second_branch`.  Change `a.txt` (and stage and commit) in the top of the file!
 Go back to `master` and change `a.txt` at the bottom of the file (stage &
-commit).  Observer that we have _two different (changed) versions of `a.txt`_ in
+commit).  Observe that we have _two different (changed) versions of `a.txt`_ in
 the two branches.
 
 Go to `master` and again run `git merge second_branch`.
