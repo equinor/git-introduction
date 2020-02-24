@@ -731,6 +731,7 @@ not used it as a collaborative tool.  It is actually possible to use it
 productively by sending the changes (commits and even full branches) via
 _email_, however, it is possible to use a common _server_, or in Git called
 _remote_, to share a Git tree.
+(See note.)
 
 Suppose that you (Alice) are working with Bob on the same Git tree, and the Git
 tree are stored on a _Git server_ with URL
@@ -805,6 +806,12 @@ pull`.
 ## Exercises
 
 1. Clone any Git repository and run `git log`
+
+## Notes
+
+1. A _remote_ is not necessarily stored on a server.  Indeed, you can actually
+   _clone_ a repository on your local (or remote) harddrive.  Simply make a new
+   folder and write `git clone /path/to/repo`.
 
 ## References
 
