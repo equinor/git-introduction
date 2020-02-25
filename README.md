@@ -356,7 +356,7 @@ all a revision control system.
 ## Exercises
 
 1. Run `git log`
-1. Run `git log -p`
+1. Run `git log -p`  (use `q` to quit if necessary)
 1. Run `git log --oneline`
 
 
