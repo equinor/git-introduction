@@ -265,6 +265,7 @@ section, we will take our file `a.txt` and _add_ it to git.
 _Observe_ now that though, that everything in Git is stored in the `.git`
 folder, and you can always investigate its content by running `tree` (or `find
 .git` if your system does not have `tree`).
+On Windows, you can run `cmd //c tree .git` to use Windows' `tree` command.
 
 ```bash
 $ tree .git
