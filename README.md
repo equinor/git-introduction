@@ -224,8 +224,12 @@ meaning now, i.e. what is the difference between `a.txt` and `b.txt`.
 
 # The empty repository
 
+_(NB:  You probably want to create a new folder to experiment in with `mkdir git` and `cd git` prior to `git init`.)_
+
+
 We now understand the fundamentals behind revisions of files, so we are ready to
 start using `git`.  Go into a new empty folder and simply write
+
 
 ```bash
 git init
