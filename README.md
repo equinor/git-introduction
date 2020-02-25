@@ -797,6 +797,12 @@ ssh-agent_](https://help.github.com/en/github/authenticating-to-github/generatin
 As long as you keep the private key secret, this is a very good and secure way
 of working with Git.  You can add several keys, one for each computer you use.
 
+It is also possible to use HTTPS without 2FA, but with a [_personal access
+tokens_](https://github.com/settings/tokens) instead of the password.  In this
+case, your username is your GitHub username, and the password to use is the
+token.  Beware that you need to take care to not leak the token, since that is a
+stand-in for password+2FA.
+
 
 **Fetching, pulling, and pushing**
 
