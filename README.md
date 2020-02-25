@@ -569,7 +569,7 @@ is a good message, so we keep that.
 
 Git will now do an _auto-merge_.
 
-At this poitn, it can be illuminating to run
+At this point, it can be illuminating to run
 
 ```bash
 git log --oneline --graph
