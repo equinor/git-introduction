@@ -880,7 +880,7 @@ pull`.
   * [`git reflog`](https://git-scm.com/docs/git-reflog)
 
 
---
+---
 
 * Git browsing
   * [`git log`](https://git-scm.com/docs/git-log)
