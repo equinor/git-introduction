@@ -465,9 +465,7 @@ we _unstage_ everything.  We can also run `git reset b.txt` to reset _only_
 **Undoing a commit**
 
 Sometimes we even _commit_ a staged change by accident, or after review, we
-realize that we have commited an error.  We can _roll back to a previous
-commit_, however, this should be done only locally, or in other special
-circumstances.
+realize that we have commited an error. In such a case we _could_ use `git reset`, however that would get us in trouble if we have pushed our changes to the server. Instead we can use `git revert`. That will create a new commit that actually reverts the previous one. That means we preserve history, but neutralize the commit that caused problems.
 
 If we have this history:
 ```
@@ -477,10 +475,12 @@ If we have this history:
 * 4468f5d Initial commit
 ```
 
-then `git reset --hard 434bbc2` results in this tree:
+then `git revert 434bbc2` results in this tree:
 
 ```
-* 434bbc2 (HEAD -> master) Add b
+* d34a870 (HEAD -> master) Revert "Add b"
+* be70d88 Add c
+* 434bbc2 Add b
 * d52b990 Initial long commit
 * 4468f5d Initial commit
 ```
