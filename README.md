@@ -833,6 +833,107 @@ pull`.
 * [`git pull`](https://git-scm.com/docs/git-pull)
 * [Generating a new SSH key](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
+# Extra curriculum: A workflow when working with remotes
+
+As you have seen by now, using git with a common _remote_ can be a powerful
+tool for collaboration. Alice and Bob can work on the same git tree, but
+distributed.
+
+The simplicity of git also makes it possible to use the tool to support
+different workflows on different platforms. One of these is the
+_"forking workflow"_, or the _"fork and pull request workflow"_ – a common
+workflow for open source projects. This workflow is enabled by using git with a
+git hosting provider like GitHub or GitLab.
+
+In our last example, both Alice and Bob worked directly on the same _remote_.
+Now we are going to leverage the functionality provided by the git hosting
+platform, to add an additional remote to our workflow.
+
+Instead of cloning the _remote_ directly. Alice and Bob now first creates a
+personal server-side copy of the _remote_ git tree - a _fork_.
+Alice creates her _fork_, and Bob makes his.
+
+Alice and Bob will then clone their personal forks, to their local computers.
+
+```
+git clone git://example.com:git/project.git
+```
+
+Alice now has one _git tree_ at her local computer that refers to a remote
+stored at the git hosting platform. This _remote_ is Alice's personal fork of
+the common _git tree_ she and Bob are working on.
+
+Bob has the same. His local _git tree_, refers to his fork at the git hosting
+platform.
+
+None of them have a _git tree_ referring to the original central project.
+
+Independently, Alice and Bob now performs their changes on the local git trees.
+They start by branching out from the freshly cloned _master branch_, and
+commits their work.
+
+This time, they try the `-b` flag on the `git checkout` operation. This both
+creates a new branch, and then checks it out in one single operation.
+
+Alice and Bob runs:
+```
+git checkout -b alices_feature
+git checkout -b bobs_feature
+```
+
+The next operation is then to transfer these changes to the original remote,
+and merge them into the common _git tree_.
+
+As before they push their new local branch to the remote named _origin_.
+But remember, Alice's and Bob's _origin_ is not the same.
+Alice's refers to her _fork_ and Bob's to his. They both pushes their new
+branch to their own forks.
+
+Alice and Bob pushes:
+```
+git push origin alices_feature
+git push origin bobs_feature
+```
+The common central git tree still remains unchanged. But the two personal
+online forks are now updated with a new branch each.
+
+Alice and Bob now use the functionality of the git hosting platform, to
+initiate a _pull request_ from their new newly created branches from the
+updated forks.
+
+The two _pull requests_ then appears in the original repository.
+
+Alice reviews Bob's _pull requests_ and accepts to merge his
+_bobs_feature_-branch into the _master_-branch of the git tree. While Bob
+review Alice's changes, and perform execute the same merge of
+_alices_feature_ -branch onto _master_.
+
+The state of the original central git tree is now changed, reflecting all
+changes that Alice and Bob have performed on their local copies.
+
+
+## Exercises
+
+1. Logon to GitHub and goto
+[MamasKitchen](https://github.com/equinor/mamaskitchen) repository
+
+2. Fork a copy of equinor/MamasKitchen to your own account
+
+3. Clone the personal fork to your computer
+
+4. Create a new branch
+
+5. Make some changes.
+
+6. Push the new branch to your personal fork on GitHub
+
+7. Initiate a pull request to the equinor/mamaskitchen repository
+
+8. Ask a _maintainer_ (in this case a fellow course participant), to review,
+approve and merge in the changes from the _pull request_ to the original
+_git tree_.
+
+
 # Git commands
 
 * Setup and Config
